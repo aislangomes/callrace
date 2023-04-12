@@ -22,6 +22,10 @@ module.exports = {
           type: Sequelize.STRING,
           allowNull: false,
         },
+        searchdriver:{
+          type: Sequelize.BOOLEAN,
+          defaultValue: true,
+        },
         created_at:{
           type: Sequelize.DATE,
           allowNull: false,

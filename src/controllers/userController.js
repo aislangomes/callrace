@@ -8,11 +8,11 @@ module.exports = {
       return res.status(200).send({message: "Erro corrida não pode ser chamada"})
     }
     return res.status(200).send({users})
-
   },
   async store (req, res) {
     const {streetstart, streetend, paymentmethod} = req.body
     const user = await User.create({streetstart, streetend, paymentmethod})
+    await user.save()
 
     return res.status(200).send({
       status: 1,
@@ -36,5 +36,5 @@ module.exports = {
       status: 1,
       message: "Usuario deletado com sucesso!",
     })
-  }
+  },
 }

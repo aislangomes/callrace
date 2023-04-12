@@ -5,7 +5,8 @@ class User extends Model {
     super.init({
       streetstart:DataTypes.STRING,
       streetend:DataTypes.STRING,
-      paymentmethod:DataTypes.STRING     
+      paymentmethod:DataTypes.STRING,
+      searchdriver: DataTypes.BOOLEAN     
     }, {sequelize})
   }
 }
