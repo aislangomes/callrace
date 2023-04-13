@@ -15,26 +15,28 @@ module.exports = {
     await user.save()
 
     return res.status(200).send({
-      status: 1,
       message: "Buscando corrida",
       user
     })
     
   },
-  async update(req, res) {
-    
-    
-  },
+
   async delete(req, res) {
-    const { id } = req.params
+    const { iduser } = req.params
+    const userCancel = await User.findOne({where: {id: iduser}})
+
+    if(!userCancel){
+      return res.status(404).send({
+        message: "Usuario não existe!",
+      })
+    }
     await User.destroy({
       where: {
-        id: id,
+        id: iduser,
       },
     })
     return res.status(200).send({
-      status: 1,
-      message: "Usuario deletado com sucesso!",
+      message: "Usuario cancelou a corrida!",
     })
   },
 }

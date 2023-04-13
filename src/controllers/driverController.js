@@ -21,15 +21,19 @@ module.exports = {
     })
     
   },
-  async update(req, res) {
-    
-    
-  },
+
   async delete(req, res) {
-    const { id } = req.params
+    const { iddriver } = req.params
+   
+    const finddriver = Driver.findOne({where: {id: iddriver}})
+
+    if(!finddriver){
+      return res.status(404).json({error: "O motorista nao existe"})
+    }
+
     await Driver.destroy({
       where: {
-        id: id,
+        id: iddriver,
       },
     })
     return res.status(200).send({
