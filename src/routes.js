@@ -2,7 +2,7 @@ const {Router} = require("express")
 const routes = Router()
 const userController = require('./controllers/userController.js')
 const driverController = require('./controllers/driverController.js')
-const checkIfUserIsReady = require('./middlewares/request')
+const checkIfUserIsReady = require('./middlewares/request.js')
 
 routes.get('/callrace', userController.index)
 routes.post('/callrace', userController.store)

@@ -5,7 +5,7 @@ module.exports = {
   async index (req, res) {
     const users = await User.findAll()
     if (users == "" || users == null){
-      return res.status(200).send({message: "Erro corrida não pode ser chamada"})
+      return res.status(200).send({message: "Nenhuma busca iniciada"})
     }
     return res.status(200).send({users})
   },

@@ -16,7 +16,6 @@ module.exports = {
     await driver.save()
 
     return res.status(200).send({
-      status: 1,
       message: "Corrida iniciada",
       driver
     })
@@ -34,7 +33,6 @@ module.exports = {
       },
     })
     return res.status(200).send({
-      status: 1,
       message: "Corrida cancelada",
     })
   }
